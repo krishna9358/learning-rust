@@ -29,7 +29,16 @@ fn main() {
     
     println!("{} {}", x, y);  
     y = 3;    
-    println!("{} {}", x, y);  
+    println!("{} {}", x, y); 
+
+    //mutability in string
+    let mut mut_name = String::from("krishna ");
+    mut_name.push_str("mohan");
+    println!("{}", mut_name);
+
+
+
+
 
 }
 
