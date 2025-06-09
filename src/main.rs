@@ -13,7 +13,7 @@ fn main() {
     println!("{:?}", vector );
 
     //for loops
-    for i in 0..100000000 {
+    for i in 0..100 {
         println!("{}", i);
     }
 
@@ -23,7 +23,14 @@ fn main() {
         println!("{}", x);
         x += 1;
     }
+
+    let x = 2;  // immutable variable
+    let mut y = 2; // mutable variable
     
+    println!("{} {}", x, y);  
+    y = 3;    
+    println!("{} {}", x, y);  
+
 }
 
 // fucntion initialization 
