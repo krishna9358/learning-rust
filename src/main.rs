@@ -1,3 +1,25 @@
+// struct 
+struct Rectangle {
+    width : f32,
+    height : f32,
+}
+
+//implementing on struct same as class in other languages 
+impl Rectangle{
+    // member function 
+    fn area(&self) -> f32{
+        return self.width * self.height;
+    }
+
+    // static function
+    fn square(size : f32) -> Rectangle{
+        return Rectangle {
+            width : size,
+            height : size
+        };
+    }
+}
+
 fn main() {
     // print
     println!("Hello, world!");
@@ -36,9 +58,16 @@ fn main() {
     mut_name.push_str("mohan");
     println!("{}", mut_name);
 
+    //calling struct here
+    let rectangle: Rectangle = Rectangle {
+        width : 10.0,
+        height : 10.0
+    };
+    println!("{} {} {}", rectangle.width, rectangle.height, rectangle.area());
 
-
-
+    // calling static function
+    let square = Rectangle::square(10.0);
+    println!("{} {} {}", square.width, square.height, square.area());
 
 }
 
@@ -51,3 +80,12 @@ fn is_even(n : u32) -> bool {
         return false;
     }
 }
+
+// ownership rules
+//  - each value in rust has an owner 
+//  - there can only be one owner at a time 
+//  - when the owner goes out of scope, the value will be dropped 
+
+// borrowing rules 
+//  - can have one mutable reference &mut 
+//  - can have multiple immutable references 
