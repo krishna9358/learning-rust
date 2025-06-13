@@ -1,3 +1,5 @@
+use std::default;
+
 // struct 
 struct Rectangle {
     width : f32,
@@ -19,6 +21,23 @@ impl Rectangle{
         };
     }
 }
+
+//enums are same as in typescripts
+enum Direction{
+    Up,
+    Down,
+    Left,
+    Right
+}
+
+// enum with values
+enum Shapes{
+    Circle(f32),
+    Square(f32),
+    Rectangle(f32,f32)
+}
+
+
 
 fn main() {
     // print
@@ -68,6 +87,22 @@ fn main() {
     // calling static function
     let square = Rectangle::square(10.0);
     println!("{} {} {}", square.width, square.height, square.area());
+
+    //using enums
+        let my_direction : Direction = Direction::Up;
+
+    let my_shape : Shapes = Shapes::Circle(10.0);
+    
+    // pattern matching
+    match my_direction{
+        Direction::Up => println!("up"),
+        Direction::Down => println!("down"),
+        Direction::Left => println!("left"),
+        // Direction::Right => println!("right"),
+        _ => println!("default")    //default is used to handle the case when no other case is matched
+    }  
+
+
 
 }
 
