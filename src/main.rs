@@ -1,4 +1,6 @@
-use std::default;
+
+use std::fs::read_to_string;
+use std::io::Error;
 
 // struct 
 struct Rectangle {
@@ -103,7 +105,7 @@ fn main() {
     }  
 
     // try catch in rust
-    let content : Result<String, Error> = fs::read_to_string("file.txt");
+        let content : Result<String, Error> = read_to_string(  "file.txt");
     match content{
         Ok(content) => println!("{}", content),
         Err(error) => println!("Error: {}", error)
@@ -139,3 +141,33 @@ fn calculate_area(shape : Shapes) -> f32{
         Shapes::Rectangle(width, height) => return width * height
     }
 }
+
+
+// option enum is used to handle the absence of a value
+enum Option<T>{
+    Some(T),
+    None // None is a placeholder for the absence of a value
+}
+
+// code for option enum
+fn option_enum(){
+let x : Option<i32> = Some(5);
+let y : Option<i32> = None;
+println!("{:?}", x);
+println!("{:?}", y);
+}
+
+// result enum
+enum Result<T, E>{
+    Ok(T),
+    Err(E)
+}
+
+// code for result enum
+fn divide(a : i32, b : i32) -> Result<i32, String>{
+    if b == 0{
+        return Err(String::from("Cannot divide by zero"));
+    }
+    return Ok(a / b);
+}
+
