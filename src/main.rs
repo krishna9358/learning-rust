@@ -102,6 +102,13 @@ fn main() {
         _ => println!("default")    //default is used to handle the case when no other case is matched
     }  
 
+    // try catch in rust
+    let content : Result<String, Error> = fs::read_to_string("file.txt");
+    match content{
+        Ok(content) => println!("{}", content),
+        Err(error) => println!("Error: {}", error)
+    }
+
 
 
 }
@@ -124,3 +131,11 @@ fn is_even(n : u32) -> bool {
 // borrowing rules 
 //  - can have one mutable reference &mut 
 //  - can have multiple immutable references 
+
+fn calculate_area(shape : Shapes) -> f32{
+    match shape {
+        Shapes::Circle(radius) => return 3.14 * radius * radius,
+        Shapes::Square(side) => return side * side,
+        Shapes::Rectangle(width, height) => return width * height
+    }
+}
