@@ -1,4 +1,4 @@
-
+// importing
 use std::fs::read_to_string;
 use std::io::Error;
 
@@ -171,3 +171,15 @@ fn divide(a : i32, b : i32) -> Result<i32, String>{
     return Ok(a / b);
 }
 
+
+// generics
+// T is a placeholder for the type
+// std::ops::Add<Output = T> is a trait that defines the addition operation
+// Output = T is a constraint that ensures the output type is the same as the input type
+// T: std::ops::Add<Output = T> is a generic constraint that ensures the type T implements the Add trait
+// Add trait is defined in the std::ops module
+// Add trait is defined as a trait that defines the addition operation
+// Add trait is defined as a trait that defines the addition operation
+fn sum<T: std::ops::Add<Output = T>>(a: T, b: T) -> T{
+    return a + b;
+}
