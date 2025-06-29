@@ -199,3 +199,16 @@ macro_rules! say_hello {
 
 // procedural macro
 #[derive(Debug)]
+// attribute macro  
+// functional macro 
+#[derive(copy, clone)]
+struct MyStruct{
+    x : i32,
+    y : i32
+}
+
+// procedural macro
+#[proc_macro]
+fn my_macro(input: TokenStream) -> TokenStream{
+    return TokenStream::new();
+}
