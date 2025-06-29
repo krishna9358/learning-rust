@@ -2,7 +2,7 @@
 use std::fs::read_to_string;
 use std::io::Error;
 
-// struct 
+// struct
 struct Rectangle {
     width : f32,
     height : f32,
@@ -183,3 +183,19 @@ fn divide(a : i32, b : i32) -> Result<i32, String>{
 fn sum<T: std::ops::Add<Output = T>>(a: T, b: T) -> T{
     return a + b;
 }
+// trait bound is used to specify the type of the parameter
+trait Printable{
+    fn print(&self);
+}
+
+// macros
+// macros are used to generate code at compile time ( meta programming )
+// macros are defined using the macro_rules! macro
+macro_rules! say_hello {
+    () => {
+        println!("Hello, world!");
+    };
+}
+
+// procedural macro
+#[derive(Debug)]
